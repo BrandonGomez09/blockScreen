@@ -16,15 +16,13 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
     _preventScreenshot();
   }
 
-  // NUEVO: Este método se llama cuando esta pantalla vuelve a ser la superior (ej: al regresar de Perfil)
   @override
   void didPopNext() {
     super.didPopNext();
-    // Vuelve a aplicar la protección por si una pantalla anterior la quitó
+
     _preventScreenshot();
   }
 
-  // NUEVO: Suscribe esta clase al observador de rutas
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -33,7 +31,6 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
 
   @override
   void dispose() {
-    // NUEVO: Quita la suscripción para evitar memory leaks
     routeObserver.unsubscribe(this);
     super.dispose();
   }
@@ -61,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> with RouteAware {
             icon: const Icon(Icons.logout),
             onPressed: _logout,
             tooltip: 'Cerrar Sesión',
-          )
+          ),
         ],
       ),
       body: Center(

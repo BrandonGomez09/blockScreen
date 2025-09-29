@@ -3,7 +3,6 @@ import 'screens/login_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/profile_screen.dart';
 
-// NUEVO: Crea un observador de rutas que usaremos en la MaterialApp
 final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
 void main() {
@@ -27,7 +26,6 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomeScreen(),
         '/profile': (context) => const ProfileScreen(),
       },
-      // NUEVO: Registra el observador en tu aplicación
       navigatorObservers: [routeObserver],
     );
   }
